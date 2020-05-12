@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bankers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Creditors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IBAN" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="lend" Type="float" Nullable="false" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="interest" Type="float" Nullable="false" />
+          <Property Name="balance" Type="float" Nullable="false" />
+          <Property Name="guarantee" Type="float" Nullable="false" />
+          <Property Name="banker_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Debtors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IBAN" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="debt" Type="float" Nullable="false" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="interest" Type="float" Nullable="false" />
+          <Property Name="balance" Type="float" Nullable="false" />
+          <Property Name="installment" Type="float" Nullable="false" />
+          <Property Name="banker_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Creditors_Bankers">
+          <End Role="bankers" Type="Self.bankers" Multiplicity="1" />
+          <End Role="Creditors" Type="Self.Creditors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bankers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Creditors">
+              <PropertyRef Name="banker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debtors_Bankers">
+          <End Role="bankers" Type="Self.bankers" Multiplicity="1" />
+          <End Role="Debtors" Type="Self.Debtors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bankers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Debtors">
+              <PropertyRef Name="banker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bankModelStoreContainer">
+          <EntitySet Name="bankers" EntityType="Self.bankers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Creditors" EntityType="Self.Creditors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Debtors" EntityType="Self.Debtors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Creditors_Bankers" Association="Self.FK_Creditors_Bankers">
+            <End Role="bankers" EntitySet="bankers" />
+            <End Role="Creditors" EntitySet="Creditors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debtors_Bankers" Association="Self.FK_Debtors_Bankers">
+            <End Role="bankers" EntitySet="bankers" />
+            <End Role="Debtors" EntitySet="Debtors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bankers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Creditors" Relationship="Self.FK_Creditors_Bankers" FromRole="bankers" ToRole="Creditors" />
+          <NavigationProperty Name="Debtors" Relationship="Self.FK_Debtors_Bankers" FromRole="bankers" ToRole="Debtors" />
+        </EntityType>
+        <EntityType Name="Creditors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IBAN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="lend" Type="Double" Nullable="false" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="interest" Type="Double" Nullable="false" />
+          <Property Name="balance" Type="Double" Nullable="false" />
+          <Property Name="guarantee" Type="Double" Nullable="false" />
+          <Property Name="banker_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bankers" Relationship="Self.FK_Creditors_Bankers" FromRole="Creditors" ToRole="bankers" />
+        </EntityType>
+        <EntityType Name="Debtors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IBAN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="debt" Type="Double" Nullable="false" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="interest" Type="Double" Nullable="false" />
+          <Property Name="balance" Type="Double" Nullable="false" />
+          <Property Name="installment" Type="Double" Nullable="false" />
+          <Property Name="banker_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bankers" Relationship="Self.FK_Debtors_Bankers" FromRole="Debtors" ToRole="bankers" />
+        </EntityType>
+        <Association Name="FK_Creditors_Bankers">
+          <End Role="bankers" Type="Self.bankers" Multiplicity="1" />
+          <End Role="Creditors" Type="Self.Creditors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bankers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Creditors">
+              <PropertyRef Name="banker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debtors_Bankers">
+          <End Role="bankers" Type="Self.bankers" Multiplicity="1" />
+          <End Role="Debtors" Type="Self.Debtors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bankers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Debtors">
+              <PropertyRef Name="banker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bankEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bankers" EntityType="Self.bankers" />
+          <EntitySet Name="Creditors" EntityType="Self.Creditors" />
+          <EntitySet Name="Debtors" EntityType="Self.Debtors" />
+          <AssociationSet Name="FK_Creditors_Bankers" Association="Self.FK_Creditors_Bankers">
+            <End Role="bankers" EntitySet="bankers" />
+            <End Role="Creditors" EntitySet="Creditors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debtors_Bankers" Association="Self.FK_Debtors_Bankers">
+            <End Role="bankers" EntitySet="bankers" />
+            <End Role="Debtors" EntitySet="Debtors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bankModelStoreContainer" CdmEntityContainer="bankEntities">
+          <EntitySetMapping Name="bankers">
+            <EntityTypeMapping TypeName="bankModel.bankers">
+              <MappingFragment StoreEntitySet="bankers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Creditors">
+            <EntityTypeMapping TypeName="bankModel.Creditors">
+              <MappingFragment StoreEntitySet="Creditors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lend" ColumnName="lend" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="guarantee" ColumnName="guarantee" />
+                <ScalarProperty Name="banker_id" ColumnName="banker_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Debtors">
+            <EntityTypeMapping TypeName="bankModel.Debtors">
+              <MappingFragment StoreEntitySet="Debtors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="debt" ColumnName="debt" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="installment" ColumnName="installment" />
+                <ScalarProperty Name="banker_id" ColumnName="banker_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
