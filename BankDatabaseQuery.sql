@@ -1,4 +1,3 @@
-﻿CREATE DATABASE [bank];
 CREATE TABLE [dbo].[bankers] (
     [id]       INT          IDENTITY (1, 1) NOT NULL,
     [username] VARCHAR (50) NULL,
