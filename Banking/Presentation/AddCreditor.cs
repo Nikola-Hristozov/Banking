@@ -12,21 +12,16 @@ using MetroFramework;
 
 namespace Banking.Presentation
 {
-	public partial class AddDebtor : MetroFramework.Forms.MetroForm
+	public partial class AddCreditor : MetroFramework.Forms.MetroForm
 	{
-		public AddDebtor()
+		public AddCreditor()
 		{
 			InitializeComponent();
 		}
 
-		private void AddDebtor_Load(object sender, EventArgs e)
-		{
-			BankersComboBox.DataSource = Access.GetBankers().Keys.ToList();
-		}
-
 		private void metroButton1_Click(object sender, EventArgs e)
 		{
-			Access.CreateDebtor(IBANTextBox.Text, NameTextBox.Text, double.Parse(DebtTextBox.Text), EndDateTime.Value, 5, 1);	
+			Access.CreateCreditor(IBANTextBox.Text, NameTextBox.Text, double.Parse(DebtTextBox.Text), EndDateTime.Value, 5, 1);
 			MetroMessageBox.Show(this, "oke");
 		}
 	}

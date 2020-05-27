@@ -135,29 +135,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Access.cs" />
-    <Compile Include="Data\Bank.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bank.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Bank.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bank.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Bank.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bank.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Data\bankers.cs">
-      <DependentUpon>Bank.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Creditors.cs">
-      <DependentUpon>Bank.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Debtors.cs">
-      <DependentUpon>Bank.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Logic\Calculate.cs" />
     <Compile Include="Presentation\AddDebtor.cs">
@@ -172,6 +172,12 @@
     <Compile Include="Presentation\Client.Designer.cs">
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\AddCreditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\AddCreditor.Designer.cs">
+      <DependentUpon>AddCreditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\AddCreditor.resx">
+      <DependentUpon>AddCreditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\AddDebtor.resx">
       <DependentUpon>AddDebtor.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,22 +207,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Data\Bank.edmx">
+    <EntityDeploy Include="Data\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bank.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Data\Bank.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bank.edmx</DependentUpon>
-      <LastGenOutput>Bank.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Data\Bank.edmx.diagram">
-      <DependentUpon>Bank.edmx</DependentUpon>
-    </None>
-    <None Include="Data\Bank.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Bank.edmx</DependentUpon>
-      <LastGenOutput>Bank.cs</LastGenOutput>
+    <None Include="Data\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -229,9 +228,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

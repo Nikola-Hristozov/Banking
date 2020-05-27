@@ -22,9 +22,8 @@
           <Property Name="IBAN" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="lend" Type="float" Nullable="false" />
-          <Property Name="endDate" Type="date" />
+          <Property Name="endDate" Type="date" Nullable="false" />
           <Property Name="interest" Type="float" Nullable="false" />
-          <Property Name="balance" Type="float" Nullable="false" />
           <Property Name="guarantee" Type="float" Nullable="false" />
           <Property Name="banker_id" Type="int" Nullable="false" />
         </EntityType>
@@ -38,7 +37,6 @@
           <Property Name="debt" Type="float" Nullable="false" />
           <Property Name="endDate" Type="date" />
           <Property Name="interest" Type="float" Nullable="false" />
-          <Property Name="balance" Type="float" Nullable="false" />
           <Property Name="installment" Type="float" Nullable="false" />
           <Property Name="banker_id" Type="int" Nullable="false" />
         </EntityType>
@@ -103,9 +101,8 @@
           <Property Name="IBAN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="lend" Type="Double" Nullable="false" />
-          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="interest" Type="Double" Nullable="false" />
-          <Property Name="balance" Type="Double" Nullable="false" />
           <Property Name="guarantee" Type="Double" Nullable="false" />
           <Property Name="banker_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="bankers" Relationship="Self.FK_Creditors_Bankers" FromRole="Creditors" ToRole="bankers" />
@@ -120,7 +117,6 @@
           <Property Name="debt" Type="Double" Nullable="false" />
           <Property Name="endDate" Type="DateTime" Precision="0" />
           <Property Name="interest" Type="Double" Nullable="false" />
-          <Property Name="balance" Type="Double" Nullable="false" />
           <Property Name="installment" Type="Double" Nullable="false" />
           <Property Name="banker_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="bankers" Relationship="Self.FK_Debtors_Bankers" FromRole="Debtors" ToRole="bankers" />
@@ -187,7 +183,6 @@
                 <ScalarProperty Name="lend" ColumnName="lend" />
                 <ScalarProperty Name="endDate" ColumnName="endDate" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
-                <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="guarantee" ColumnName="guarantee" />
                 <ScalarProperty Name="banker_id" ColumnName="banker_id" />
               </MappingFragment>
@@ -202,7 +197,6 @@
                 <ScalarProperty Name="debt" ColumnName="debt" />
                 <ScalarProperty Name="endDate" ColumnName="endDate" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
-                <ScalarProperty Name="balance" ColumnName="balance" />
                 <ScalarProperty Name="installment" ColumnName="installment" />
                 <ScalarProperty Name="banker_id" ColumnName="banker_id" />
               </MappingFragment>

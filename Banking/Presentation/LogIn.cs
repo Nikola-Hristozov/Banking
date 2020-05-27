@@ -52,5 +52,6 @@ namespace Banking.Presentation
 			else
 				LogInButton.Enabled = false;
 		}
+
 	}
 }

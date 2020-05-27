@@ -15,6 +15,9 @@ namespace Banking.Logic
 			int mounts = end.Month - DateTime.Now.Month;
 			return (debt * Math.Pow(1 + (interest / 100), years)) / (mounts+(years*12));
 		}
-		
+		public static double Guarantee(double lend, double interest)
+		{
+			return (lend * Math.Pow(1 + (interest / 100),2) / 24);
+		}
 	}
 }

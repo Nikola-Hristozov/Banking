@@ -39,7 +39,7 @@
 			// 
 			// metroPanel1
 			// 
-			this.metroPanel1.BackColor = System.Drawing.Color.White;
+			this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
 			this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.metroPanel1.Controls.Add(this.LogInButton);
 			this.metroPanel1.Controls.Add(this.PasswordTextBox);

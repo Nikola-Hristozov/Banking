@@ -68,12 +68,16 @@ namespace Banking.Data
 				return bankers;
 			}
 		}
-		public static void CreateDebtor(string IBAN, string name, double debt, DateTime end, double interest, int banker_id, double balance)
+		public static void CreateDebtor(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
 		{
 			bankEntities a = new bankEntities();
-			var b = (from user in a.bankers
-					 select new { user.id }).Count();
-			a.Debtors.Add(new Debtors(b,IBAN, name, debt, end, interest, banker_id, balance));
+			a.Debtors.Add(new Debtors(IBAN, name, debt, end, interest, banker_id));
+			a.SaveChanges();
+		}
+		public static void CreateCreditor(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
+		{
+			bankEntities a = new bankEntities();
+			a.Creditors.Add(new Creditors(IBAN, name, lend, end, interest, banker_id));
 			a.SaveChanges();
 		}
 	}

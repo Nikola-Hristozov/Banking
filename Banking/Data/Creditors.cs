@@ -12,15 +12,25 @@ namespace Banking.Data
     using System;
     using System.Collections.Generic;
     
+    
     public partial class Creditors
-    {
+    {   
+        public Creditors(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
+        {
+            this.IBAN = IBAN;
+            this.name = name;
+            this.lend = debt;
+            this.endDate = end;
+            this.interest = interest;
+            this.banker_id = banker_id;
+            this.guarantee = Logic.Calculate.Guarantee(debt, interest);
+        }
         public int Id { get; set; }
         public string IBAN { get; set; }
         public string name { get; set; }
         public double lend { get; set; }
-        public Nullable<System.DateTime> endDate { get; set; }
+        public System.DateTime endDate { get; set; }
         public double interest { get; set; }
-        public double balance { get; set; }
         public double guarantee { get; set; }
         public int banker_id { get; set; }
     

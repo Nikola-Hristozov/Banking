@@ -1,6 +1,6 @@
 ﻿namespace Banking.Presentation
 {
-	partial class AddDebtor
+	partial class AddCreditor
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -40,8 +40,8 @@
 			this.NameLabel = new MetroFramework.Controls.MetroLabel();
 			this.IBANTextBox = new MetroFramework.Controls.MetroTextBox();
 			this.IBAM = new MetroFramework.Controls.MetroLabel();
-			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.metroPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -67,7 +67,7 @@
 			this.metroPanel1.Location = new System.Drawing.Point(23, 63);
 			this.metroPanel1.Name = "metroPanel1";
 			this.metroPanel1.Size = new System.Drawing.Size(754, 364);
-			this.metroPanel1.TabIndex = 0;
+			this.metroPanel1.TabIndex = 1;
 			this.metroPanel1.UseCustomBackColor = true;
 			this.metroPanel1.VerticalScrollbarBarColor = true;
 			this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -83,7 +83,7 @@
 			this.metroButton1.Size = new System.Drawing.Size(187, 52);
 			this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
 			this.metroButton1.TabIndex = 18;
-			this.metroButton1.Text = "Add new debtor";
+			this.metroButton1.Text = "Add new creditor";
 			this.metroButton1.UseCustomForeColor = true;
 			this.metroButton1.UseSelectable = true;
 			this.metroButton1.UseStyleColors = true;
@@ -115,7 +115,7 @@
 			// 
 			// EndDateTime
 			// 
-			this.EndDateTime.Location = new System.Drawing.Point(524, 19);
+			this.EndDateTime.Location = new System.Drawing.Point(524, 21);
 			this.EndDateTime.MinDate = new System.DateTime(2020, 5, 6, 0, 0, 0, 0);
 			this.EndDateTime.MinimumSize = new System.Drawing.Size(0, 29);
 			this.EndDateTime.Name = "EndDateTime";
@@ -176,10 +176,10 @@
 			this.debt.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.debt.Location = new System.Drawing.Point(46, 177);
 			this.debt.Name = "debt";
-			this.debt.Size = new System.Drawing.Size(48, 25);
+			this.debt.Size = new System.Drawing.Size(49, 25);
 			this.debt.Style = MetroFramework.MetroColorStyle.Blue;
 			this.debt.TabIndex = 10;
-			this.debt.Text = "Debt";
+			this.debt.Text = "Lend";
 			this.debt.UseStyleColors = true;
 			// 
 			// NameTextBox
@@ -274,18 +274,6 @@
 			this.IBAM.Text = "IBAN";
 			this.IBAM.UseStyleColors = true;
 			// 
-			// metroLabel1
-			// 
-			this.metroLabel1.AutoSize = true;
-			this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.metroLabel1.Location = new System.Drawing.Point(404, 177);
-			this.metroLabel1.Name = "metroLabel1";
-			this.metroLabel1.Size = new System.Drawing.Size(67, 25);
-			this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
-			this.metroLabel1.TabIndex = 19;
-			this.metroLabel1.Text = "Interest";
-			this.metroLabel1.UseStyleColors = true;
-			// 
 			// metroTextBox1
 			// 
 			// 
@@ -314,21 +302,32 @@
 			this.metroTextBox1.ShortcutsEnabled = true;
 			this.metroTextBox1.Size = new System.Drawing.Size(187, 29);
 			this.metroTextBox1.Style = MetroFramework.MetroColorStyle.Blue;
-			this.metroTextBox1.TabIndex = 20;
+			this.metroTextBox1.TabIndex = 22;
 			this.metroTextBox1.UseSelectable = true;
 			this.metroTextBox1.UseStyleColors = true;
 			this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
 			this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
 			// 
-			// AddDebtor
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+			this.metroLabel1.Location = new System.Drawing.Point(404, 177);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(67, 25);
+			this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
+			this.metroLabel1.TabIndex = 21;
+			this.metroLabel1.Text = "Interest";
+			this.metroLabel1.UseStyleColors = true;
+			// 
+			// AddCreditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.metroPanel1);
-			this.Name = "AddDebtor";
-			this.Text = "Add Debtor";
-			this.Load += new System.EventHandler(this.AddDebtor_Load);
+			this.Name = "AddCreditor";
+			this.Text = "Add Creditor";
 			this.metroPanel1.ResumeLayout(false);
 			this.metroPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -338,17 +337,17 @@
 		#endregion
 
 		private MetroFramework.Controls.MetroPanel metroPanel1;
+		private MetroFramework.Controls.MetroButton metroButton1;
+		private MetroFramework.Controls.MetroComboBox BankersComboBox;
+		private MetroFramework.Controls.MetroLabel metroLabel3;
+		private MetroFramework.Controls.MetroDateTime EndDateTime;
+		private MetroFramework.Controls.MetroLabel metroLabel2;
 		private MetroFramework.Controls.MetroTextBox DebtTextBox;
 		private MetroFramework.Controls.MetroLabel debt;
 		private MetroFramework.Controls.MetroTextBox NameTextBox;
 		private MetroFramework.Controls.MetroLabel NameLabel;
 		private MetroFramework.Controls.MetroTextBox IBANTextBox;
 		private MetroFramework.Controls.MetroLabel IBAM;
-		private MetroFramework.Controls.MetroComboBox BankersComboBox;
-		private MetroFramework.Controls.MetroLabel metroLabel3;
-		private MetroFramework.Controls.MetroDateTime EndDateTime;
-		private MetroFramework.Controls.MetroLabel metroLabel2;
-		private MetroFramework.Controls.MetroButton metroButton1;
 		private MetroFramework.Controls.MetroTextBox metroTextBox1;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
 	}
