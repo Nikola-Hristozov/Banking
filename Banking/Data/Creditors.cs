@@ -12,9 +12,8 @@ namespace Banking.Data
     using System;
     using System.Collections.Generic;
     
-    
     public partial class Creditors
-    {   
+    {
         public Creditors(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
         {
             this.IBAN = IBAN;

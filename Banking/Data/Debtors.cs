@@ -11,7 +11,6 @@ namespace Banking.Data
 {
     using System;
     using System.Collections.Generic;
-
     
     public partial class Debtors
     {

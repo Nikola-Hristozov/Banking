@@ -134,16 +134,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Access.cs" />
     <Compile Include="Data\bankers.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Creditors.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Access.cs" />
     <Compile Include="Data\Debtors.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Calculate.cs" />
     <Compile Include="Data\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,7 +160,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Logic\Calculate.cs" />
     <Compile Include="Presentation\AddDebtor.cs">
       <SubType>Form</SubType>
     </Compile>
