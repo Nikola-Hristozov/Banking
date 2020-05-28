@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+			this.InterestTextBox = new MetroFramework.Controls.MetroTextBox();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.metroButton1 = new MetroFramework.Controls.MetroButton();
 			this.BankersComboBox = new MetroFramework.Controls.MetroComboBox();
 			this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -40,15 +42,13 @@
 			this.NameLabel = new MetroFramework.Controls.MetroLabel();
 			this.IBANTextBox = new MetroFramework.Controls.MetroTextBox();
 			this.IBAM = new MetroFramework.Controls.MetroLabel();
-			this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
 			this.metroPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// metroPanel1
 			// 
 			this.metroPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-			this.metroPanel1.Controls.Add(this.metroTextBox1);
+			this.metroPanel1.Controls.Add(this.InterestTextBox);
 			this.metroPanel1.Controls.Add(this.metroLabel1);
 			this.metroPanel1.Controls.Add(this.metroButton1);
 			this.metroPanel1.Controls.Add(this.BankersComboBox);
@@ -72,6 +72,52 @@
 			this.metroPanel1.VerticalScrollbarBarColor = true;
 			this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
 			this.metroPanel1.VerticalScrollbarSize = 10;
+			// 
+			// InterestTextBox
+			// 
+			// 
+			// 
+			// 
+			this.InterestTextBox.CustomButton.Image = null;
+			this.InterestTextBox.CustomButton.Location = new System.Drawing.Point(159, 1);
+			this.InterestTextBox.CustomButton.Name = "";
+			this.InterestTextBox.CustomButton.Size = new System.Drawing.Size(27, 27);
+			this.InterestTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+			this.InterestTextBox.CustomButton.TabIndex = 1;
+			this.InterestTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+			this.InterestTextBox.CustomButton.UseSelectable = true;
+			this.InterestTextBox.CustomButton.Visible = false;
+			this.InterestTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+			this.InterestTextBox.Lines = new string[0];
+			this.InterestTextBox.Location = new System.Drawing.Point(524, 175);
+			this.InterestTextBox.Margin = new System.Windows.Forms.Padding(20);
+			this.InterestTextBox.MaxLength = 32767;
+			this.InterestTextBox.Name = "InterestTextBox";
+			this.InterestTextBox.PasswordChar = '\0';
+			this.InterestTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.InterestTextBox.SelectedText = "";
+			this.InterestTextBox.SelectionLength = 0;
+			this.InterestTextBox.SelectionStart = 0;
+			this.InterestTextBox.ShortcutsEnabled = true;
+			this.InterestTextBox.Size = new System.Drawing.Size(187, 29);
+			this.InterestTextBox.Style = MetroFramework.MetroColorStyle.Blue;
+			this.InterestTextBox.TabIndex = 22;
+			this.InterestTextBox.UseSelectable = true;
+			this.InterestTextBox.UseStyleColors = true;
+			this.InterestTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+			this.InterestTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+			// 
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+			this.metroLabel1.Location = new System.Drawing.Point(404, 177);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(67, 25);
+			this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
+			this.metroLabel1.TabIndex = 21;
+			this.metroLabel1.Text = "Interest";
+			this.metroLabel1.UseStyleColors = true;
 			// 
 			// metroButton1
 			// 
@@ -274,52 +320,6 @@
 			this.IBAM.Text = "IBAN";
 			this.IBAM.UseStyleColors = true;
 			// 
-			// metroTextBox1
-			// 
-			// 
-			// 
-			// 
-			this.metroTextBox1.CustomButton.Image = null;
-			this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(159, 1);
-			this.metroTextBox1.CustomButton.Name = "";
-			this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(27, 27);
-			this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-			this.metroTextBox1.CustomButton.TabIndex = 1;
-			this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-			this.metroTextBox1.CustomButton.UseSelectable = true;
-			this.metroTextBox1.CustomButton.Visible = false;
-			this.metroTextBox1.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-			this.metroTextBox1.Lines = new string[0];
-			this.metroTextBox1.Location = new System.Drawing.Point(524, 175);
-			this.metroTextBox1.Margin = new System.Windows.Forms.Padding(20);
-			this.metroTextBox1.MaxLength = 32767;
-			this.metroTextBox1.Name = "metroTextBox1";
-			this.metroTextBox1.PasswordChar = '\0';
-			this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.metroTextBox1.SelectedText = "";
-			this.metroTextBox1.SelectionLength = 0;
-			this.metroTextBox1.SelectionStart = 0;
-			this.metroTextBox1.ShortcutsEnabled = true;
-			this.metroTextBox1.Size = new System.Drawing.Size(187, 29);
-			this.metroTextBox1.Style = MetroFramework.MetroColorStyle.Blue;
-			this.metroTextBox1.TabIndex = 22;
-			this.metroTextBox1.UseSelectable = true;
-			this.metroTextBox1.UseStyleColors = true;
-			this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-			this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-			// 
-			// metroLabel1
-			// 
-			this.metroLabel1.AutoSize = true;
-			this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.metroLabel1.Location = new System.Drawing.Point(404, 177);
-			this.metroLabel1.Name = "metroLabel1";
-			this.metroLabel1.Size = new System.Drawing.Size(67, 25);
-			this.metroLabel1.Style = MetroFramework.MetroColorStyle.Blue;
-			this.metroLabel1.TabIndex = 21;
-			this.metroLabel1.Text = "Interest";
-			this.metroLabel1.UseStyleColors = true;
-			// 
 			// AddCreditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +328,7 @@
 			this.Controls.Add(this.metroPanel1);
 			this.Name = "AddCreditor";
 			this.Text = "Add Creditor";
+			this.Load += new System.EventHandler(this.AddCreditor_Load);
 			this.metroPanel1.ResumeLayout(false);
 			this.metroPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -348,7 +349,7 @@
 		private MetroFramework.Controls.MetroLabel NameLabel;
 		private MetroFramework.Controls.MetroTextBox IBANTextBox;
 		private MetroFramework.Controls.MetroLabel IBAM;
-		private MetroFramework.Controls.MetroTextBox metroTextBox1;
+		private MetroFramework.Controls.MetroTextBox InterestTextBox;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
 	}
 }

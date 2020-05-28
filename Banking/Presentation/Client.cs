@@ -15,10 +15,12 @@ namespace Banking.Presentation
 	public partial class Client : MetroFramework.Forms.MetroForm
 	{
 		string name;
-		public Client(string name)
+		int id;
+		public Client(bankers banker)
 		{
 			InitializeComponent();
-			this.name = name;
+			name = banker.name;
+			id = banker.id;
 		}
 
 		private void Client_Load(object sender, EventArgs e)
@@ -35,6 +37,24 @@ namespace Banking.Presentation
 		{
 			AddDebtor NewDebtor = new AddDebtor();
 			NewDebtor.Show();
+		}
+
+		private void AddCreditor_Click(object sender, EventArgs e)
+		{
+			AddCreditor NewCreditor = new AddCreditor();
+			NewCreditor.Show();
+		}
+
+		private void InfoDebtor_Click(object sender, EventArgs e)
+		{
+			ViewDebtors viewDebtors = new ViewDebtors(id);
+			viewDebtors.Show();
+		}
+
+		private void InfoCreditor_Click(object sender, EventArgs e)
+		{
+			ViewCreditors viewCreditors = new ViewCreditors(id);
+			viewCreditors.Show();
 		}
 	}
 }

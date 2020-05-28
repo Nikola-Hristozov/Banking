@@ -17,7 +17,7 @@ namespace Banking.Logic
 		}
 		public static double Guarantee(double lend, double interest)
 		{
-			return (lend * Math.Pow(1 + (interest / 100),2) / 24);
+			return (lend * Math.Pow(1 + (interest / 100),2));
 		}
 	}
 }

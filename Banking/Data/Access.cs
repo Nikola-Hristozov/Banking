@@ -10,7 +10,7 @@ namespace Banking.Data
 {
 	public class Access
 	{
-		public static bool CheckAccount(string username,string password,ref string name)
+		public static bool CheckAccount(string username,string password,ref string name,ref int id)
 		{
 			using (var context = new bankEntities())
 			{
@@ -29,15 +29,16 @@ namespace Banking.Data
 				{
 					if (Users[username] == password)
 					{
-						var named= from user in context.bankers
-								   where(user.username==username)
-								   select new
-								   {
-									   user.name
-								   };
+						var named = from user in context.bankers
+									where (user.username == username)
+									select new
+									{
+										user.name,
+ 										user.id
+									};
 						foreach (var a in named)
 						{
-							
+							id = a.id;
 							name = a.name;
 						}
 
@@ -79,6 +80,55 @@ namespace Banking.Data
 			bankEntities a = new bankEntities();
 			a.Creditors.Add(new Creditors(IBAN, name, lend, end, interest, banker_id));
 			a.SaveChanges();
+		}
+
+		public static List<Debtors> GetDebtors(int id)
+		{
+			using (var context = new bankEntities())
+			{
+				var a = from debtor in context.Debtors
+						where (debtor.banker_id == id)
+						select new
+						{
+							debtor.IBAN,
+							debtor.name,
+							debtor.debt,
+							debtor.endDate,
+							debtor.interest,
+							debtor.installment,
+							debtor.banker_id
+						};
+				List<Debtors> debtors = new List<Debtors>();
+				foreach (var debtor in a)
+				{
+					debtors.Add(new Debtors(debtor.IBAN, debtor.name, debtor.debt, debtor.endDate, debtor.interest, debtor.banker_id));
+				}
+				return debtors;
+			}
+		}
+		public static List<Creditors> GetCreditors(int id)
+		{
+			using (var context = new bankEntities())
+			{
+				var a = from creditor in context.Creditors
+						where (creditor.banker_id == id)
+						select new
+						{
+							creditor.IBAN,
+							creditor.name,
+							creditor.lend,
+							creditor.endDate,
+							creditor.interest,
+							creditor.guarantee,
+							creditor.banker_id
+						};
+				List<Creditors> creditors = new List<Creditors>();
+				foreach (var creditor in a)
+				{
+					creditors.Add(new Creditors(creditor.IBAN, creditor.name, creditor.lend, creditor.endDate, creditor.interest, creditor.banker_id));
+				}
+				return creditors;
+			}
 		}
 	}
 }

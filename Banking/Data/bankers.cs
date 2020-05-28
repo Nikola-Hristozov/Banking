@@ -20,6 +20,12 @@ namespace Banking.Data
             this.Creditors = new HashSet<Creditors>();
             this.Debtors = new HashSet<Debtors>();
         }
+        public bankers(int id,string name)
+            :base()
+        {
+            this.id = id;
+            this.name = name;
+        }
     
         public int id { get; set; }
         public string username { get; set; }

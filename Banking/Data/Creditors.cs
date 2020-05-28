@@ -14,15 +14,15 @@ namespace Banking.Data
     
     public partial class Creditors
     {
-        public Creditors(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
+        public Creditors(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
         {
             this.IBAN = IBAN;
             this.name = name;
-            this.lend = debt;
+            this.lend = lend;
             this.endDate = end;
             this.interest = interest;
             this.banker_id = banker_id;
-            this.guarantee = Logic.Calculate.Guarantee(debt, interest);
+            this.guarantee = Logic.Calculate.Guarantee(lend, interest);
         }
         public int Id { get; set; }
         public string IBAN { get; set; }

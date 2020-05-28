@@ -27,9 +27,11 @@ namespace Banking.Presentation
 		private void LogInButton_Click(object sender, EventArgs e)
 		{
 			string name="";
-			if (Data.Access.CheckAccount(UsernameTextBox.Text, PasswordTextBox.Text,ref name))
+			int id = -1;
+			if (Data.Access.CheckAccount(UsernameTextBox.Text, PasswordTextBox.Text,ref name,ref id))
 			{
-				Client client = new Client(name);
+
+				Client client = new Client(new bankers(id,name));
 				client.Show();
 				this.Hide();
 			}

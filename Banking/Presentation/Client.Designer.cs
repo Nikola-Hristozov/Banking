@@ -71,7 +71,7 @@
 			this.ChangeCreditorInfo.Size = new System.Drawing.Size(184, 52);
 			this.ChangeCreditorInfo.Style = MetroFramework.MetroColorStyle.Blue;
 			this.ChangeCreditorInfo.TabIndex = 7;
-			this.ChangeCreditorInfo.Text = "metroButton4";
+			this.ChangeCreditorInfo.Text = "Change creditors information";
 			this.ChangeCreditorInfo.UseCustomForeColor = true;
 			this.ChangeCreditorInfo.UseSelectable = true;
 			this.ChangeCreditorInfo.UseStyleColors = true;
@@ -86,10 +86,11 @@
 			this.InfoCreditor.Size = new System.Drawing.Size(184, 52);
 			this.InfoCreditor.Style = MetroFramework.MetroColorStyle.Blue;
 			this.InfoCreditor.TabIndex = 6;
-			this.InfoCreditor.Text = "metroButton5";
+			this.InfoCreditor.Text = "View your creditors";
 			this.InfoCreditor.UseCustomForeColor = true;
 			this.InfoCreditor.UseSelectable = true;
 			this.InfoCreditor.UseStyleColors = true;
+			this.InfoCreditor.Click += new System.EventHandler(this.InfoCreditor_Click);
 			// 
 			// AddCreditor
 			// 
@@ -101,10 +102,11 @@
 			this.AddCreditor.Size = new System.Drawing.Size(184, 52);
 			this.AddCreditor.Style = MetroFramework.MetroColorStyle.Blue;
 			this.AddCreditor.TabIndex = 5;
-			this.AddCreditor.Text = "metroButton6";
+			this.AddCreditor.Text = "Add new creditor";
 			this.AddCreditor.UseCustomForeColor = true;
 			this.AddCreditor.UseSelectable = true;
 			this.AddCreditor.UseStyleColors = true;
+			this.AddCreditor.Click += new System.EventHandler(this.AddCreditor_Click);
 			// 
 			// ChangeDebtorInfo
 			// 
@@ -116,7 +118,7 @@
 			this.ChangeDebtorInfo.Size = new System.Drawing.Size(184, 52);
 			this.ChangeDebtorInfo.Style = MetroFramework.MetroColorStyle.Blue;
 			this.ChangeDebtorInfo.TabIndex = 4;
-			this.ChangeDebtorInfo.Text = "metroButton3";
+			this.ChangeDebtorInfo.Text = "Change debtors information";
 			this.ChangeDebtorInfo.UseCustomForeColor = true;
 			this.ChangeDebtorInfo.UseSelectable = true;
 			this.ChangeDebtorInfo.UseStyleColors = true;
@@ -131,10 +133,11 @@
 			this.InfoDebtor.Size = new System.Drawing.Size(184, 52);
 			this.InfoDebtor.Style = MetroFramework.MetroColorStyle.Blue;
 			this.InfoDebtor.TabIndex = 3;
-			this.InfoDebtor.Text = "metroButton2";
+			this.InfoDebtor.Text = "View your debtors";
 			this.InfoDebtor.UseCustomForeColor = true;
 			this.InfoDebtor.UseSelectable = true;
 			this.InfoDebtor.UseStyleColors = true;
+			this.InfoDebtor.Click += new System.EventHandler(this.InfoDebtor_Click);
 			// 
 			// AddDebtor
 			// 

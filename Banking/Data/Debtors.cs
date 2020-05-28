@@ -28,7 +28,7 @@ namespace Banking.Data
         public string IBAN { get; set; }
         public string name { get; set; }
         public double debt { get; set; }
-        public Nullable<System.DateTime> endDate { get; set; }
+        public System.DateTime endDate { get; set; }
         public double interest { get; set; }
         public double installment { get; set; }
         public int banker_id { get; set; }
