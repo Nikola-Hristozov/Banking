@@ -1,4 +1,6 @@
-﻿namespace Banking.Presentation
+﻿using Banking.Properties;
+
+namespace Banking.Presentation
 {
 	partial class AddCreditor
 	{
@@ -28,6 +30,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.Icon = Banking.Properties.Resources.icon;
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
 			this.InterestTextBox = new MetroFramework.Controls.MetroTextBox();

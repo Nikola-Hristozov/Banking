@@ -28,12 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.Icon = Banking.Properties.Resources.icon;
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.LogInButton = new MetroFramework.Controls.MetroButton();
 			this.PasswordTextBox = new MetroFramework.Controls.MetroTextBox();
 			this.PasswordLabel = new MetroFramework.Controls.MetroLabel();
 			this.UsernameTextBox = new MetroFramework.Controls.MetroTextBox();
 			this.UsernameLabel = new MetroFramework.Controls.MetroLabel();
+			this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
 			this.metroPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -50,10 +52,10 @@
 			this.metroPanel1.HorizontalScrollbarBarColor = true;
 			this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
 			this.metroPanel1.HorizontalScrollbarSize = 10;
-			this.metroPanel1.Location = new System.Drawing.Point(103, 114);
+			this.metroPanel1.Location = new System.Drawing.Point(103, 209);
 			this.metroPanel1.Name = "metroPanel1";
 			this.metroPanel1.Padding = new System.Windows.Forms.Padding(20);
-			this.metroPanel1.Size = new System.Drawing.Size(594, 263);
+			this.metroPanel1.Size = new System.Drawing.Size(594, 212);
 			this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
 			this.metroPanel1.TabIndex = 0;
 			this.metroPanel1.UseCustomBackColor = true;
@@ -67,7 +69,7 @@
 			this.LogInButton.Enabled = false;
 			this.LogInButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(219)))));
 			this.LogInButton.Highlight = true;
-			this.LogInButton.Location = new System.Drawing.Point(239, 200);
+			this.LogInButton.Location = new System.Drawing.Point(244, 145);
 			this.LogInButton.Name = "LogInButton";
 			this.LogInButton.Size = new System.Drawing.Size(113, 38);
 			this.LogInButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -93,7 +95,7 @@
 			this.PasswordTextBox.CustomButton.Visible = false;
 			this.PasswordTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.PasswordTextBox.Lines = new string[0];
-			this.PasswordTextBox.Location = new System.Drawing.Point(295, 123);
+			this.PasswordTextBox.Location = new System.Drawing.Point(300, 94);
 			this.PasswordTextBox.MaxLength = 32767;
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.PasswordChar = '\0';
@@ -115,12 +117,13 @@
 			// 
 			this.PasswordLabel.AutoSize = true;
 			this.PasswordLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.PasswordLabel.Location = new System.Drawing.Point(141, 122);
+			this.PasswordLabel.Location = new System.Drawing.Point(146, 93);
 			this.PasswordLabel.Name = "PasswordLabel";
 			this.PasswordLabel.Size = new System.Drawing.Size(82, 25);
 			this.PasswordLabel.Style = MetroFramework.MetroColorStyle.Blue;
 			this.PasswordLabel.TabIndex = 4;
 			this.PasswordLabel.Text = "Password";
+			this.PasswordLabel.UseCustomBackColor = true;
 			this.PasswordLabel.UseStyleColors = true;
 			// 
 			// UsernameTextBox
@@ -139,7 +142,7 @@
 			this.UsernameTextBox.CustomButton.Visible = false;
 			this.UsernameTextBox.FontSize = MetroFramework.MetroTextBoxSize.Medium;
 			this.UsernameTextBox.Lines = new string[0];
-			this.UsernameTextBox.Location = new System.Drawing.Point(295, 55);
+			this.UsernameTextBox.Location = new System.Drawing.Point(300, 38);
 			this.UsernameTextBox.MaxLength = 32767;
 			this.UsernameTextBox.Name = "UsernameTextBox";
 			this.UsernameTextBox.PasswordChar = '\0';
@@ -161,13 +164,32 @@
 			// 
 			this.UsernameLabel.AutoSize = true;
 			this.UsernameLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
-			this.UsernameLabel.Location = new System.Drawing.Point(138, 54);
+			this.UsernameLabel.Location = new System.Drawing.Point(143, 37);
 			this.UsernameLabel.Name = "UsernameLabel";
 			this.UsernameLabel.Size = new System.Drawing.Size(89, 25);
 			this.UsernameLabel.Style = MetroFramework.MetroColorStyle.Blue;
 			this.UsernameLabel.TabIndex = 2;
 			this.UsernameLabel.Text = "Username";
+			this.UsernameLabel.UseCustomBackColor = true;
 			this.UsernameLabel.UseStyleColors = true;
+			// 
+			// metroPanel2
+			// 
+			this.metroPanel2.BackgroundImage = global::Banking.Properties.Resources.logo;
+			this.metroPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.metroPanel2.HorizontalScrollbarBarColor = true;
+			this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+			this.metroPanel2.HorizontalScrollbarSize = 10;
+			this.metroPanel2.Location = new System.Drawing.Point(317, 43);
+			this.metroPanel2.Name = "metroPanel2";
+			this.metroPanel2.Size = new System.Drawing.Size(170, 131);
+			this.metroPanel2.TabIndex = 5;
+			this.metroPanel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+			this.metroPanel2.UseCustomBackColor = true;
+			this.metroPanel2.UseStyleColors = true;
+			this.metroPanel2.VerticalScrollbarBarColor = true;
+			this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+			this.metroPanel2.VerticalScrollbarSize = 10;
 			// 
 			// LogIn
 			// 
@@ -175,6 +197,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.metroPanel2);
 			this.Controls.Add(this.metroPanel1);
 			this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.Name = "LogIn";
@@ -196,6 +219,7 @@
 		private MetroFramework.Controls.MetroLabel PasswordLabel;
 		private MetroFramework.Controls.MetroTextBox UsernameTextBox;
 		private MetroFramework.Controls.MetroLabel UsernameLabel;
+		private MetroFramework.Controls.MetroPanel metroPanel2;
 	}
 }
 

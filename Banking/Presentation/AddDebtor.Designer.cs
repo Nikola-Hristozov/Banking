@@ -30,6 +30,7 @@ namespace Banking.Presentation
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.Icon = Banking.Properties.Resources.icon;
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
 			this.interestTextBox = new MetroFramework.Controls.MetroTextBox();

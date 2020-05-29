@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.Icon = Banking.Properties.Resources.icon;
 			this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
 			this.metroButton3 = new MetroFramework.Controls.MetroButton();
 			this.metroButton2 = new MetroFramework.Controls.MetroButton();
