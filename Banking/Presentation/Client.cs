@@ -56,5 +56,17 @@ namespace Banking.Presentation
 			ViewCreditors viewCreditors = new ViewCreditors(id);
 			viewCreditors.Show();
 		}
+
+		private void ChangeDebtorInfo_Click(object sender, EventArgs e)
+		{
+			ChangeDebtor changeDebtor = new ChangeDebtor(id);
+			changeDebtor.Show();
+		}
+
+		private void ChangeCreditorInfo_Click(object sender, EventArgs e)
+		{
+			ChangeCreditor changeCreditor = new ChangeCreditor(id);
+			changeCreditor.Show();
+		}
 	}
 }

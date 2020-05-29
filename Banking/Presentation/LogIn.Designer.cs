@@ -71,7 +71,7 @@
 			this.LogInButton.Name = "LogInButton";
 			this.LogInButton.Size = new System.Drawing.Size(113, 38);
 			this.LogInButton.Style = MetroFramework.MetroColorStyle.Blue;
-			this.LogInButton.TabIndex = 6;
+			this.LogInButton.TabIndex = 3;
 			this.LogInButton.Text = "Log In";
 			this.LogInButton.UseCustomForeColor = true;
 			this.LogInButton.UseSelectable = true;
@@ -104,7 +104,7 @@
 			this.PasswordTextBox.ShortcutsEnabled = true;
 			this.PasswordTextBox.Size = new System.Drawing.Size(143, 23);
 			this.PasswordTextBox.Style = MetroFramework.MetroColorStyle.Blue;
-			this.PasswordTextBox.TabIndex = 5;
+			this.PasswordTextBox.TabIndex = 2;
 			this.PasswordTextBox.UseSelectable = true;
 			this.PasswordTextBox.UseStyleColors = true;
 			this.PasswordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -150,7 +150,7 @@
 			this.UsernameTextBox.ShortcutsEnabled = true;
 			this.UsernameTextBox.Size = new System.Drawing.Size(143, 23);
 			this.UsernameTextBox.Style = MetroFramework.MetroColorStyle.Blue;
-			this.UsernameTextBox.TabIndex = 3;
+			this.UsernameTextBox.TabIndex = 1;
 			this.UsernameTextBox.UseSelectable = true;
 			this.UsernameTextBox.UseStyleColors = true;
 			this.UsernameTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

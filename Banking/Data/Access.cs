@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MetroFramework;
 using Banking.Logic;
+using Microsoft.EntityFrameworkCore.Update.Internal;
+using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace Banking.Data
 {
@@ -69,19 +72,32 @@ namespace Banking.Data
 				return bankers;
 			}
 		}
-		public static void CreateDebtor(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
+		public static bool CreateDebtor(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
 		{
-			bankEntities a = new bankEntities();
-			a.Debtors.Add(new Debtors(IBAN, name, debt, end, interest, banker_id));
-			a.SaveChanges();
+			
+			using (bankEntities a = new bankEntities())
+			{
+				var all = from debtor in a.Debtors
+							where (debtor.IBAN == IBAN)
+							select new
+							{
+								debtor.Id
+							};
+				if (all.Count() == 0)
+				{
+					a.Debtors.Add(new Debtors(IBAN, name, debt, end, interest, banker_id));
+					a.SaveChanges();
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
 		}
-		public static void CreateCreditor(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
-		{
-			bankEntities a = new bankEntities();
-			a.Creditors.Add(new Creditors(IBAN, name, lend, end, interest, banker_id));
-			a.SaveChanges();
-		}
-
+		
+		
 		public static List<Debtors> GetDebtors(int id)
 		{
 			using (var context = new bankEntities())
@@ -106,6 +122,48 @@ namespace Banking.Data
 				return debtors;
 			}
 		}
+		public static void Update(Debtors debtor)
+		{
+			using(var context=new bankEntities())
+			{
+				var result=context.Debtors.Where(x=>x.IBAN==debtor.IBAN && x.name==debtor.name).First();
+				result.debt = debtor.debt;
+				result.endDate = debtor.endDate;
+				result.interest = debtor.interest;
+				context.SaveChanges();
+			}
+		}
+		public static void Delete(Debtors debtor)
+		{
+			using (var context = new bankEntities())
+			{
+				var result = context.Debtors.Where(x => x.IBAN == debtor.IBAN && x.name == debtor.name).First();
+				context.Debtors.Remove(result);
+				context.SaveChanges();
+			}
+		}
+		public static bool CreateCreditor(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
+		{
+			using (bankEntities a = new bankEntities())
+			{
+				var all = from creditor in a.Creditors
+						  where (creditor.IBAN == IBAN)
+						  select new
+						  {
+							  creditor.Id
+						  };
+				if (all.Count() == 0)
+				{
+					a.Creditors.Add(new Creditors(IBAN, name, lend, end, interest, banker_id));
+					a.SaveChanges();
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
 		public static List<Creditors> GetCreditors(int id)
 		{
 			using (var context = new bankEntities())
@@ -128,6 +186,26 @@ namespace Banking.Data
 					creditors.Add(new Creditors(creditor.IBAN, creditor.name, creditor.lend, creditor.endDate, creditor.interest, creditor.banker_id));
 				}
 				return creditors;
+			}
+		}
+		public static void Update(Creditors creditor)
+		{
+			using (var context = new bankEntities())
+			{
+				var result = context.Creditors.Where(x => x.IBAN == creditor.IBAN && x.name == creditor.name).First();
+				result.lend = creditor.lend;
+				result.endDate = creditor.endDate;
+				result.interest = creditor.interest;
+				context.SaveChanges();
+			}
+		}
+		public static void Delete(Creditors creditor)
+		{
+			using (var context = new bankEntities())
+			{
+				var result = context.Creditors.Where(x => x.IBAN == creditor.IBAN && x.name == creditor.name).First();
+				context.Creditors.Remove(result);
+				context.SaveChanges();
 			}
 		}
 	}

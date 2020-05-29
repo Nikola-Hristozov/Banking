@@ -7,17 +7,17 @@ using Banking.Data;
 
 namespace Banking.Logic
 {
-	class Calculate
+	public class Calculate
 	{
 		public static double Installment(double debt, DateTime end, double interest)
 		{
 			int years = end.Year - DateTime.Now.Year;
 			int mounts = end.Month - DateTime.Now.Month;
-			return (debt * Math.Pow(1 + (interest / 100), years)) / (mounts+(years*12));
+			return Math.Round((debt * Math.Pow(1 + (interest / 100), years+1)) / (mounts+(years*12)),2);
 		}
 		public static double Guarantee(double lend, double interest)
 		{
-			return (lend * Math.Pow(1 + (interest / 100),2));
+			return Math.Round((lend * Math.Pow(1 + (interest / 100),2)),2);
 		}
 	}
 }

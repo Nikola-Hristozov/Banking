@@ -70,11 +70,12 @@
 			this.ChangeCreditorInfo.Name = "ChangeCreditorInfo";
 			this.ChangeCreditorInfo.Size = new System.Drawing.Size(184, 52);
 			this.ChangeCreditorInfo.Style = MetroFramework.MetroColorStyle.Blue;
-			this.ChangeCreditorInfo.TabIndex = 7;
+			this.ChangeCreditorInfo.TabIndex = 6;
 			this.ChangeCreditorInfo.Text = "Change creditors information";
 			this.ChangeCreditorInfo.UseCustomForeColor = true;
 			this.ChangeCreditorInfo.UseSelectable = true;
 			this.ChangeCreditorInfo.UseStyleColors = true;
+			this.ChangeCreditorInfo.Click += new System.EventHandler(this.ChangeCreditorInfo_Click);
 			// 
 			// InfoCreditor
 			// 
@@ -85,7 +86,7 @@
 			this.InfoCreditor.Name = "InfoCreditor";
 			this.InfoCreditor.Size = new System.Drawing.Size(184, 52);
 			this.InfoCreditor.Style = MetroFramework.MetroColorStyle.Blue;
-			this.InfoCreditor.TabIndex = 6;
+			this.InfoCreditor.TabIndex = 4;
 			this.InfoCreditor.Text = "View your creditors";
 			this.InfoCreditor.UseCustomForeColor = true;
 			this.InfoCreditor.UseSelectable = true;
@@ -101,7 +102,7 @@
 			this.AddCreditor.Name = "AddCreditor";
 			this.AddCreditor.Size = new System.Drawing.Size(184, 52);
 			this.AddCreditor.Style = MetroFramework.MetroColorStyle.Blue;
-			this.AddCreditor.TabIndex = 5;
+			this.AddCreditor.TabIndex = 2;
 			this.AddCreditor.Text = "Add new creditor";
 			this.AddCreditor.UseCustomForeColor = true;
 			this.AddCreditor.UseSelectable = true;
@@ -117,11 +118,12 @@
 			this.ChangeDebtorInfo.Name = "ChangeDebtorInfo";
 			this.ChangeDebtorInfo.Size = new System.Drawing.Size(184, 52);
 			this.ChangeDebtorInfo.Style = MetroFramework.MetroColorStyle.Blue;
-			this.ChangeDebtorInfo.TabIndex = 4;
+			this.ChangeDebtorInfo.TabIndex = 5;
 			this.ChangeDebtorInfo.Text = "Change debtors information";
 			this.ChangeDebtorInfo.UseCustomForeColor = true;
 			this.ChangeDebtorInfo.UseSelectable = true;
 			this.ChangeDebtorInfo.UseStyleColors = true;
+			this.ChangeDebtorInfo.Click += new System.EventHandler(this.ChangeDebtorInfo_Click);
 			// 
 			// InfoDebtor
 			// 
@@ -148,7 +150,7 @@
 			this.AddDebtor.Name = "AddDebtor";
 			this.AddDebtor.Size = new System.Drawing.Size(184, 52);
 			this.AddDebtor.Style = MetroFramework.MetroColorStyle.Blue;
-			this.AddDebtor.TabIndex = 2;
+			this.AddDebtor.TabIndex = 1;
 			this.AddDebtor.Text = "Add new debtor";
 			this.AddDebtor.UseCustomForeColor = true;
 			this.AddDebtor.UseSelectable = true;

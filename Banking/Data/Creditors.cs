@@ -14,6 +14,8 @@ namespace Banking.Data
     
     public partial class Creditors
     {
+        public Creditors()
+        { }
         public Creditors(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
         {
             this.IBAN = IBAN;
