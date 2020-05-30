@@ -21,7 +21,7 @@ namespace Banking.Presentation
 			this.id = id;
 		}
 		Creditors changed = null;
-
+		//Load a specified Creditor's information
 		private void metroButton2_Click(object sender, EventArgs e)
 		{
 			Exception IBANorNameNotFound = new Exception("The Creditor was not found.\nCheck the IBAN/Name and try again");
@@ -50,7 +50,7 @@ namespace Banking.Presentation
 				MetroMessageBox.Show(this, exceptionText, "Error", MessageBoxButtons.OK);
 			}
 		}
-
+		//Change the database data of the specified Creditor with the new inputed data
 		private void metroButton1_Click(object sender, EventArgs e)
 		{
 			changed.lend = double.Parse(lendTextBox.Text);
@@ -58,14 +58,16 @@ namespace Banking.Presentation
 			Access.Update(changed);
 			MetroMessageBox.Show(this, "Successfully changed the information.", "Success", MessageBoxButtons.OK);
 		}
-
+		//Deleting the specified Creditor
 		private void metroButton3_Click(object sender, EventArgs e)
 		{
 			MetroMessageBox.Show(this, "Successfully deleted.", "Success", MessageBoxButtons.OK);
 			Access.Delete(changed);
 		}
 
-
+		/// <summary>
+		/// Input restrictions whick prevent unexpected exceptions
+		/// </summary>
 		private void LendTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))

@@ -23,7 +23,7 @@ namespace Banking.Presentation
 		{
 			
 		}
-
+		//Check the username and the password of the user in the database by using the Data.Access.CheckAccount method
 		private void LogInButton_Click(object sender, EventArgs e)
 		{
 			string name="";
@@ -38,7 +38,7 @@ namespace Banking.Presentation
 			else
 				MetroMessageBox.Show(this, "Wrong Username or Password.\nTry again.", "Error");
 		}
-
+		//Prevents the user to try logging in without inputing values in the TextBoxes
 		private void UsernameTextBox_TextChanged(object sender, EventArgs e)
 		{
 			if (UsernameTextBox.Text != "" && PasswordTextBox.Text != "")

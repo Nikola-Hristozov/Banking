@@ -20,6 +20,7 @@ namespace Banking.Presentation
 		}
 		Dictionary<string, int> bankers = new Dictionary<string, int>();
 
+		//Validating the input of AddCreditors Form and using Data.Access.CreateCreditor to add new creditor in the database
 		private void metroButton1_Click(object sender, EventArgs e)
 		{
 			Exception WrongIBAN = new Exception("Wrong IBAN format.");
@@ -98,7 +99,7 @@ namespace Banking.Presentation
 			}
 			
 		}
-
+		//Defining BankersComboBox.DataSource by using the Data.Access.GetBankers Method
 		private void AddCreditor_Load(object sender, EventArgs e)
 		{
 			bankers = Access.GetBankers();
@@ -106,7 +107,9 @@ namespace Banking.Presentation
 
 			
 		}
-
+		/// <summary>
+		/// Input restrictions whick prevent unexpected exceptions
+		/// </summary>
 		private void IBANTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && !char.IsControl(e.KeyChar))

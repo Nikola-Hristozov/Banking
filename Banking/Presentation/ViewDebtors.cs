@@ -20,7 +20,7 @@ namespace Banking.Presentation
 			InitializeComponent();
 			this.id = id;
 		}
-
+		//Loads all Debtors for which the banker using the application is responsible for
 		private void ViewDebtors_Load(object sender, EventArgs e)
 		{
 			List<Debtors> debtors = Access.GetDebtors(id);

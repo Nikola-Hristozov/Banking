@@ -19,6 +19,7 @@ namespace Banking.Presentation
 			InitializeComponent();
 		}
 		Dictionary<string, int> bankers = new Dictionary<string, int>();
+		//Setting Min and Default Value to the EndDateTime control defining BankersComboBox.DataSource by using the Data.Access.GetBankers Method
 		private void AddDebtor_Load(object sender, EventArgs e)
 		{
 			EndDateTime.MinDate = new DateTime(DateTime.Now.Year + 1, DateTime.Now.Month, DateTime.Now.Day);
@@ -26,7 +27,7 @@ namespace Banking.Presentation
 			bankers = Access.GetBankers();
 			BankersComboBox.DataSource = bankers.Keys.ToList();
 		}
-		
+		//Validating the input of AddDebtor Form and using Data.Access.CreateDebtor to add new debtor in the database
 		private void metroButton1_Click(object sender, EventArgs e)
 		{
 			Exception WrongIBAN = new Exception("Wrong IBAN format.");
@@ -101,7 +102,9 @@ namespace Banking.Presentation
 			}
 
 		}
-
+		/// <summary>
+		/// Input restrictions whick prevent unexpected exceptions
+		/// </summary>
 		private void IBANTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if(!char.IsDigit(e.KeyChar) && e.KeyChar!='-' && !char.IsControl(e.KeyChar))

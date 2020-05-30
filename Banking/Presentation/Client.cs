@@ -12,6 +12,9 @@ using MetroFramework;
 
 namespace Banking.Presentation
 {
+	/// <summary>
+	/// All buttons define new forms corespounding to the button's text
+	/// </summary>
 	public partial class Client : MetroFramework.Forms.MetroForm
 	{
 		string name;
@@ -22,7 +25,7 @@ namespace Banking.Presentation
 			name = banker.name;
 			id = banker.id;
 		}
-
+		//Add the name of the banker who uses the application
 		private void Client_Load(object sender, EventArgs e)
 		{
 			Text += " "+name+"!";

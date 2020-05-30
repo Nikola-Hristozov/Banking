@@ -13,6 +13,7 @@ namespace Banking.Data
 {
 	public class Access
 	{
+		//Checks if the username and password of the user escist in the database
 		public static bool CheckAccount(string username,string password,ref string name,ref int id)
 		{
 			using (var context = new bankEntities())
@@ -54,6 +55,7 @@ namespace Banking.Data
 					return false;
 			}
 		}
+		//Returns a dictionary with the name and id of the current banker user
 		public static Dictionary<string, int> GetBankers()
 		{
 			Dictionary<string, int> bankers = new Dictionary<string, int>();
@@ -72,6 +74,7 @@ namespace Banking.Data
 				return bankers;
 			}
 		}
+		//Creates new object from class Debtor and adding it to the database
 		public static bool CreateDebtor(string IBAN, string name, double debt, DateTime end, double interest, int banker_id)
 		{
 			
@@ -97,7 +100,7 @@ namespace Banking.Data
 			
 		}
 		
-		
+		//Returns list of the Dabtors of the current banker user
 		public static List<Debtors> GetDebtors(int id)
 		{
 			using (var context = new bankEntities())
@@ -122,6 +125,7 @@ namespace Banking.Data
 				return debtors;
 			}
 		}
+		//Changes the data of specified Debtor
 		public static void Update(Debtors debtor)
 		{
 			using(var context=new bankEntities())
@@ -133,6 +137,7 @@ namespace Banking.Data
 				context.SaveChanges();
 			}
 		}
+		//Deletes specified Debtor
 		public static void Delete(Debtors debtor)
 		{
 			using (var context = new bankEntities())
@@ -142,6 +147,7 @@ namespace Banking.Data
 				context.SaveChanges();
 			}
 		}
+		//Creates new object from class Creditor and adding it to the database
 		public static bool CreateCreditor(string IBAN, string name, double lend, DateTime end, double interest, int banker_id)
 		{
 			using (bankEntities a = new bankEntities())
@@ -164,6 +170,7 @@ namespace Banking.Data
 				}
 			}
 		}
+		//Returns list of the Creditors of the current banker user
 		public static List<Creditors> GetCreditors(int id)
 		{
 			using (var context = new bankEntities())
@@ -188,6 +195,7 @@ namespace Banking.Data
 				return creditors;
 			}
 		}
+		//Changes the data of specified Creditor
 		public static void Update(Creditors creditor)
 		{
 			using (var context = new bankEntities())
@@ -199,6 +207,7 @@ namespace Banking.Data
 				context.SaveChanges();
 			}
 		}
+		//Deletes specified Creditor
 		public static void Delete(Creditors creditor)
 		{
 			using (var context = new bankEntities())

@@ -21,6 +21,7 @@ namespace Banking.Presentation
 			this.id = id;
 		}
 		Debtors changed = null;
+		//Load a specified Debtor's information
 		private void metroButton2_Click(object sender, EventArgs e)
 		{
 			Exception IBANorNameNotFound = new Exception("The Debtors was not found.\nCheck the IBAN/Name and try again");
@@ -51,7 +52,7 @@ namespace Banking.Presentation
 				MetroMessageBox.Show(this, exceptionText, "Error", MessageBoxButtons.OK);
 			}
 		}
-
+		//Change the database data of the specified Debtor with the new inputed data
 		private void metroButton1_Click(object sender, EventArgs e)
 		{
 			changed.debt = double.Parse(debtTextBox.Text);
@@ -59,19 +60,22 @@ namespace Banking.Presentation
 			changed.interest=double.Parse(interestTextBox.Text);
 			Access.Update(changed);
 			MetroMessageBox.Show(this, "Successfully changed the information.", "Success", MessageBoxButtons.OK);
-
 		}
-
+		//Deleting the specified Debtor
 		private void metroButton3_Click(object sender, EventArgs e)
 		{
 			Access.Delete(changed);
 			MetroMessageBox.Show(this, "Successfully deleted.", "Success", MessageBoxButtons.OK);
 		}
+		//Setting Min and Default Value to the EndDateTime control 
 		private void ChangeDebtor_Load(object sender, EventArgs e)
 		{
 			EndDateTime.MinDate = new DateTime(DateTime.Now.Year + 1, DateTime.Now.Month, DateTime.Now.Day);
 			EndDateTime.Value = EndDateTime.MinDate;
 		}
+		/// <summary>
+		/// Input restrictions whick prevent unexpected exceptions
+		/// </summary>
 		private void debtTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))
